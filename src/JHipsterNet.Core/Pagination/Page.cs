@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace JHipsterNet.Core.Pagination {
@@ -13,7 +14,7 @@ namespace JHipsterNet.Core.Pagination {
 
         public new bool IsLast => !HasNext;
 
-        public int TotalPages => Size == 0 ? 1 : Total / Size;
+        public int TotalPages => Size == 0 ? 1 : Convert.ToInt32( Math.Ceiling( (double) Total / Size) );
 
         public int TotalElements => Total;
     }
